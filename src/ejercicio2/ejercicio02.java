@@ -1,12 +1,14 @@
 package ejercicio2;
 
+import modelos.estadopartida;
+
 import java.io.*;
 
 public class ejercicio02 {
     //private static File ficherito;
 
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         /*
         En el contexto del desarrollo de un videojuego, se ha creado una clase llamada
         EstadoPartida para persistir el estado actual de una partida, de manera que se pueda
@@ -19,6 +21,11 @@ EstadoPartida y estos dos métodos de la aplicación:
          */
 
 
+        estadopartida ep;
+        ep = new estadopartida(3,6-1);
+        guardarPartida(ep);
+        recuperarpartida();
+
 
 
     }
@@ -30,19 +37,19 @@ EstadoPartida y estos dos métodos de la aplicación:
         bw.newLine();
         bw.write(partidita.getPantallaActual());
         bw.close();
-        fw.close;
+        fw.close();
 
 
 
     }
-    static void recuoerarpartida() throws IOException {
+    static estadopartida recuperarpartida() throws IOException {
         File file = new File("partida.bck");
         FileReader fr = new FileReader(file);
         BufferedReader br = new BufferedReader(fr);
         int vidasRestantes = Integer.parseInt(br.readLine());
         int pantallaActual = Integer.parseInt(br.readLine());
         br.close();
-        fw.close
+        fr.close();
 
         return new  estadopartida(vidasRestantes, pantallaActual);
 
